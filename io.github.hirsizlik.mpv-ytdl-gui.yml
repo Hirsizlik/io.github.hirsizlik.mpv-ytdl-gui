@@ -1,0 +1,57 @@
+id: io.github.hirsizlik.mpv-ytdl-gui
+runtime: org.kde.Platform
+runtime-version: '6.7'
+sdk: org.kde.Sdk
+sdk-extensions: [org.freedesktop.Sdk.Extension.rust-stable]
+base: io.mpv.Mpv
+base-version: stable
+command: mpv-ytdl-gui
+finish-args:
+  - --device=dri
+  - --filesystem=home:ro
+  - --share=ipc
+  - --share=network
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  # to ask for a password if required
+  - --talk-name=org.freedesktop.secrets
+  # mpv
+  - --filesystem=xdg-run/pipewire-0:ro
+  - --filesystem=/tmp:rw
+  - --filesystem=xdg-pictures:rw
+  - --filesystem=xdg-videos:rw
+  - --filesystem=home/.var/app/io.mpv.Mpv/config/mpv/scripts:create
+  - --filesystem=host:ro
+
+cleanup:
+  - '*.la'
+  - '*.a'
+
+build-options:
+  append-path: "/usr/lib/sdk/rust-stable/bin"
+  env:
+    "CARGO_HOME": "/run/build/mpv-ytdl-gui/cargo"
+
+modules:
+  - name: corrosion
+    buildsystem: cmake-ninja
+    sources:
+        - type: git
+          url: https://github.com/corrosion-rs/corrosion.git
+          branch: master
+  - name: mpv-ytdl-gui
+    buildsystem: simple
+    build-commands: [
+        "cargo --offline fetch --manifest-path rust/Cargo.toml --verbose",
+        "cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -G Ninja -B build",
+        "cmake --build build",
+        "install -Dm755 build/mpv-ytdl-gui -t /app/bin",
+        "install -Dm755 media/io.github.hirsizlik.mpv-ytdl-gui.desktop /app/share/applications"
+    ]
+    sources:
+        - type: git
+          url: https://github.com/Hirsizlik/mpv-ytdl-gui.git
+          branch: main
+        - "cargo-sources.json"
+  - "python3-yt-dlp.yaml"
