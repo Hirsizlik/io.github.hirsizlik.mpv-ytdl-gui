@@ -1,9 +1,9 @@
-# Generated with flatpak-pip-generator --yaml yt-dlp==2024.5.11.232654.dev0
-name: python3-yt_dlp
+# Generated with flatpak-pip-generator yt-dlp==2024.5.25.232709.dev0 --yaml
+name: python3-yt-dlp
 buildsystem: simple
 build-commands:
   - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-    --prefix=${FLATPAK_DEST} "yt-dlp==2024.5.11.232654.dev0" --no-build-isolation
+    --prefix=${FLATPAK_DEST} "yt-dlp==2024.5.25.232709.dev0" --no-build-isolation
 sources:
   - type: file
     url: https://files.pythonhosted.org/packages/2f/c2/f9e977608bdf958650638c3f1e28f85a1b075f075ebbe77db8555463787b/Brotli-1.1.0.tar.gz
@@ -24,8 +24,8 @@ sources:
     url: https://files.pythonhosted.org/packages/31/a4/b03a16637574312c1b54c55aedeed8a4cb7d101d44058d46a0e5706c63e1/pycryptodomex-3.20.0.tar.gz
     sha256: 7a710b79baddd65b806402e14766c721aee8fb83381769c27920f26476276c1e
   - type: file
-    url: https://files.pythonhosted.org/packages/70/8e/0e2d847013cb52cd35b38c009bb167a1a26b2ce6cd6965bf26b47bc0bf44/requests-2.31.0-py3-none-any.whl
-    sha256: 58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f
+    url: https://files.pythonhosted.org/packages/c3/20/748e38b466e0819491f0ce6e90ebe4184966ee304fe483e2c414b0f4ef07/requests-2.32.2-py3-none-any.whl
+    sha256: fc06670dd0ed212426dfeb94fc1b983d917c4f9847c863f313c9dfaaffb7c23c
   - type: file
     url: https://files.pythonhosted.org/packages/a2/73/a68704750a7679d0b6d3ad7aa8d4da8e14e151ae82e6fee774e6e0d05ec8/urllib3-2.2.1-py3-none-any.whl
     sha256: 450b20ec296a467077128bff42b73080516e71b56ff59a60a02bef2232c4fa9d
@@ -33,5 +33,5 @@ sources:
     url: https://files.pythonhosted.org/packages/2e/62/7a7874b7285413c954a4cca3c11fd851f11b2fe5b4ae2d9bee4f6d9bdb10/websockets-12.0.tar.gz
     sha256: 81df9cbcbb6c260de1e007e58c011bfebe2dafc8435107b0537f393dd38c8b1b
   - type: file
-    url: https://files.pythonhosted.org/packages/6c/9d/ac9241e1b7d0e59822f4a0f0a072271a38754ae8c72855c6299d0d6c9ca4/yt_dlp-2024.5.11.232654.dev0-py3-none-any.whl
-    sha256: a17f49d6ddabd398d4b9d39d0dc2903aa49029542139f50cb613022c606927b0
+    url: https://files.pythonhosted.org/packages/33/8f/46f7d460137827820ef3fdb803af51d23e32a85b418b4e6b73db330125d6/yt_dlp-2024.5.25.232709.dev0-py3-none-any.whl
+    sha256: e24846133b65e9e6b6c254f8211a220ee88a7dcbd5820e50cc16e50ed14626b1
